@@ -58,6 +58,14 @@ img {
   height: auto;
 }
 
+nav.navbar .logo{
+  width: 200px;
+  height: auto;
+  margin-right: 25px;
+  padding-right: 100px;
+
+}
+
 button {
   border: 0;
   background-color: transparent;
@@ -66,6 +74,23 @@ button {
 input:focus, textarea:focus, select:focus {
   outline: none;
 }
+
+@media (min-width:1700px) {
+	main .container {
+		max-width: 100%;
+		padding: 0 150px;
+	}
+}
+
+p.success {
+	color: green;
+}
+
+p.danger {
+	color: red;
+}
+
+/* Navbar Starts */
 
 nav.navbar{
   padding: 18px 0;
@@ -188,7 +213,7 @@ span.navbar-text{
 
 nav.navbar .navbar-toggler:active,
 nav.navbar .navbar-toggler:focus {
-	outline: none;
+	  outline: none;
     box-shadow: none;
 }
 nav.navbar .navbar-toggler-icon {
@@ -236,41 +261,128 @@ nav.navbar .navbar-toggler[aria-expanded ="true"] .navbar-toggler-icon{
   border-color: transparent;
 }
 
-.App {
-  text-align: center;
+@media  screen and (min-width:480px) {
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navbar Ends */
+
+/* Banner Starts */
+.banner{
+  margin: 0;
+  padding:260px 0 100px 0 ;
+  background-image: url('./assests/img/banner-bg.png');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.banner .tagline{
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 8px 10px;
+  background: linear-gradient(90.21deg, rgba(170,54,124,0.5) -5.91%, rgba(74,47,189,0.5) 111.58%);
+  border: 1px solid rgba(255,255,255,0.5);
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: inline-block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.banner h1{
+  font-size: 65px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.banner p{
+  color: #b8b8b8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5rem;
+  width: 96%;
+}
+
+.banner button{
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 60px;
+  letter-spacing: 0.8px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.banner button svg {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+  line-height: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.banner button:hover svg{
+  margin-left: 25px;
+}
+
+.banner img{
+  animation: updown 3s linear infinite;  
+}
+
+@keyframes updown {
+  0%{
+    transform: translateY(-20px);
   }
-  to {
-    transform: rotate(360deg);
+  50%{
+    transform: translateY(20px);
   }
+  100%{
+    transform: translateY(-20px);
+  } 
+}
+.txt_rotate > .wrap{
+  border-right : 0.08em solid #666;
+}
+
+/* Banner Ends */
+
+/* Skils Starts */
+.skill{
+  padding: 0 0 50px 0;
+  position: relative;
+}
+.skill-bx{
+  background: #151515;
+  border-radius: 64px;
+  text-align: center;
+  padding: 60px 50px;
+  margin-top: -60px;
+}
+.skill h2{
+  font-size: 45px;
+  font-weight: 700;
+}
+.skills p{
+  color: #b8b8b8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5rem;
+  margin: 14px 0 75px 0;
+}
+.skill-slider{
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+.skill-slider .item img{
+  width: 50%;
+  margin: 0 auto 15px auto;
+}
+.background-image-left{
+  top: 28%;
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+  z-index: -4;
 }
