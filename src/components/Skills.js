@@ -1,10 +1,10 @@
 import {Container, Row, Col} from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import meter1 from '../assests/img/meter1.svg';
-import meter2 from '../assests/img/meter2.svg';
-import meter3 from '../assests/img/meter3.svg';
-import colorSharp from '../assests/img/color-sharp.png';
+import meter1 from '../assests/img/meter1.png';
+import meter2 from '../assests/img/meter2.png';
+import meter3 from '../assests/img/meter3.png';
+import colorSharp from '../assests/img/color-sharp.jpg';
 
 export const Skills = () =>{
     const responsive = {
@@ -34,15 +34,15 @@ export const Skills = () =>{
                     <Col>
                     <div className="skill-bx">
                         <h2>Skills</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla doloremque odio assumenda maiores consequuntur, incidunt suscipit corrupti eos libero ipsa reprehenderit debitis cum voluptatem totam perferendis. Veniam provident non libero nesciunt reiciendis? Dolorum aspernatur dicta beatae nobis possimus nisi fugit esse odio repellat quae ut obcaecati iste minus rem voluptatum sunt impedit vel provident, ullam totam mollitia tempore repellendus exercitationem? Accusamus voluptas consectetur sit ea vitae veniam nostrum maxime voluptatibus rem quisquam ipsum, quidem perferendis harum fugit quis aliquam inventore enim id sunt corrupti! Adipisci quisquam tempora saepe ullam, rerum perferendis inventore nulla fuga impedit porro consectetur vel a deleniti.</p>
+                        <p>I possess a versatile skill set that includes proficiency in programming languages such as JavaScript and Java. I have hands-on experience with web development, including front-end technologies like React and back-end frameworks like Spring. Additionally, I am adept at problem-solving, collaboration, and effective communication. My skills extend to data analysis, utilizing tools like  MySQL. With a strong foundation in software development and a passion for learning, I am well-equipped to contribute to dynamic and innovative projects.</p>
                         <Carousel responsive={responsive} infinite={true} className='skill-slider'>
                             <div className="item">
-                                <img src={meter1} alt="" srcset="" />
-                                <h5>Web Developer</h5>
+                                <img src={meter3} alt="" srcset="" />
+                                <h5>Web Developement</h5>
 
                             </div>
                             <div className="item">
-                                <img src={meter2} alt="" srcset="" />
+                                <img src={meter1} alt="" srcset="" />
                                 <h5>Internet Of Things</h5>
                             </div>
                             <div className="item">
@@ -50,11 +50,11 @@ export const Skills = () =>{
                                 <h5>Java Backend</h5>
                             </div>
                             <div className="item">
-                                <img src={meter2} alt="" srcset="" />
+                                <img src={meter3} alt="" srcset="" />
                                 <h5>Canva Designing</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="" srcset="" />
+                                <img src={meter2} alt="" srcset="" />
                                 <h5>MySQL Database</h5>
                             </div>
                         </Carousel>

@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-import logo from '../assests/img/logo(1).png';
+import logo from '../assests/img/logo.png';
 import navIcon1 from '../assests/img/nav-icon1.svg';
 import navIcon2 from '../assests/img/nav-icon2.svg';
 import navIcon3 from '../assests/img/nav-icon3.svg';
@@ -51,11 +51,11 @@ export const NavBar = () =>{
 
             <span className="navbar-text">
                 <div className="social-icon">
-                    <a href="#"><img src={navIcon1} alt="" srcset="" /></a>
+                    <a href="https://www.linkedin.com/in/abdeali-kota-wala-039155242/"><img src={navIcon1} alt="" srcset="" /></a>
                     <a href="#"><img src={navIcon2} alt="" srcset="" /></a>
-                    <a href="#"><img src={navIcon3} alt="" srcset="" /></a>
+                    <a href="https://instagram.com/abdealiamiruddin?igshid=NzZlODBkYWE4Ng=="><img src={navIcon3} alt="" srcset="" /></a>
                 </div>
-                <button className="vvd" onClick={() => console.log('connect')}>Let's Connect</button>
+                <button className="vvd" onClick={() => console.log('connect to github')}><a href="https://github.com/53Abdeali">Let's Connect</a></button>
             </span>
 
         </Navbar.Collapse>
