@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import 'react-animations';
@@ -8,22 +8,12 @@ import headerImg from "../assests/img/3426526.png";
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const toRotate = ["Web developer", "Java Developer", "MySQL Developer"];
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const period = 2000;
+  const toRotate = useMemo(() => ['Web Developer', 'Java Developer', 'MySQL Developer'], []);
 
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => {
-      clearInterval(ticker);
-    };
-  }, [text]);
-
-  const tick = () => {
+  const tick = useCallback(() => {
     let i = loopNum % toRotate.length;
     let ft = toRotate[i];
     let updated = isDeleting
@@ -41,10 +31,21 @@ export const Banner = () => {
       setDelta(period);
     } else if (isDeleting && updated === "") {
       setIsDeleting(false);
-      setLoopNum(loopNum + 1);
+      setLoopNum((prevLoopNum) => prevLoopNum + 1);
       setDelta(500);
     }
-  };
+  }, [isDeleting, setDelta, setIsDeleting, setLoopNum, setText, text, toRotate, loopNum, period]);
+
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => {
+      clearInterval(ticker);
+    };
+  }, [delta, text, tick]);
+
 
   return (
     <section className="banner" id="home">
