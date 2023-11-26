@@ -15,7 +15,7 @@ const contactEmail = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "aliabdealifakhri53@gmail.com",
-    pass: A30344006,
+    pass: "A30344006",
   },
 });
 
@@ -36,10 +36,10 @@ router.post("/contact", (req, res) => {
     from: name,
     to: "aliabdealifakhri53@gmail.com",
     subject: "",
-    html: `<p>Name: $(name)</p>
-            <p>Email: $(email)</p>
-            <p>Phone: $(phone)</p>
-            <p>Message: $(message)</p>`,
+    html: `<p>Name: ${name}</p>
+    <p>Email: ${email}</p>
+    <p>Phone: ${phone}</p>
+    <p>Message: ${message}</p>`,
   };
 
   contactEmail.sendMail(mail, (error) => {

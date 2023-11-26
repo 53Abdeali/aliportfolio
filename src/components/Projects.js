@@ -1,5 +1,6 @@
 import { Row, Col, Container, Tab, Nav } from "react-bootstrap";
 import TrackVisibility from 'react-on-screen';
+import 'react-animations';
 import { ProjectCard } from "./ProjectCard";
 import colorsharp from '../assests/img/color-sharp.jpg'
 import projImg1 from '../assests/img/project-img1.png'

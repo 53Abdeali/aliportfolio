@@ -35,7 +35,7 @@ export const Skills = () =>{
                     <div className="skill-bx">
                         <h2>Skills</h2>
                         <p>I possess a versatile skill set that includes proficiency in programming languages such as JavaScript and Java. I have hands-on experience with web development, including front-end technologies like React and back-end frameworks like Spring. Additionally, I am adept at problem-solving, collaboration, and effective communication. My skills extend to data analysis, utilizing tools like  MySQL. With a strong foundation in software development and a passion for learning, I am well-equipped to contribute to dynamic and innovative projects.</p>
-                        <Carousel responsive={responsive} infinite={true} className='skill-slider'>
+                        <Carousel responsive={responsive} infinite={true} className='owl-carousel owl-theme skill-slider'>
                             <div className="item">
                                 <img src={meter3} alt="" srcset="" />
                                 <h5>Web Developement</h5>

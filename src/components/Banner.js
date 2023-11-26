@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
+import 'react-animations';
+import TrackVisibility from "react-on-screen";
 import headerImg from "../assests/img/3426526.png";
 
 export const Banner = () => {
@@ -49,6 +51,9 @@ export const Banner = () => {
       <Container>
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
+          <TrackVisibility>
+              {({ isVisible }) =>
+              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
             <span className="tagline">Welcome to my Portfolio</span>
             <h1>
               {`Hi I'm Abdeali`}
@@ -67,9 +72,16 @@ export const Banner = () => {
             <button onClick={() => console.log("connect")}> <a href="https://github.com/53Abdeali">Let's Connect </a>
               <ArrowRightCircle size={25}></ArrowRightCircle>
             </button>
+            </div>}
+            </TrackVisibility>
           </Col>
           <Col className="bannerImage" xs={12} md={6} xl={5}>
-            <img src={headerImg} alt="header" srcset="" />
+          <TrackVisibility>
+              {({ isVisible }) =>
+                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
+                  <img src={headerImg} alt="Header Img"/>
+                </div>}
+            </TrackVisibility>
           </Col>
         </Row>
       </Container>
