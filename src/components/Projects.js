@@ -3,30 +3,35 @@ import TrackVisibility from 'react-on-screen';
 import 'react-animations';
 import { ProjectCard } from "./ProjectCard";
 import colorsharp from '../assests/img/color-sharp.jpg'
-import projImg1 from '../assests/img/project-img1.png'
-import projImg2 from '../assests/img/project-img2.png'
-import projImg3 from '../assests/img/project-img3.png'
+import projImg1 from '../assests/img/portfolio.png'
+import projImg2 from '../assests/img/react & spring.png'
+import projImg3 from '../assests/img/Mysql+ml.png'
 
 export const Projects = () => {
   const projects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "My Portfolio",
+      description: "Design & Developed using React.JS .",
       imgUrl: projImg1
-    },
+    }
+  ];
 
+  const projectsJava = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "To do List",
+      description: "Developed using Java, React.JS, Spring Boot. ",
       imgUrl: projImg2
-    },
+    }
+  ];
 
+  const projectsSql = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "Image Visualisation",
+      description: "A Machine Learning Project for the visualisation of image using Python and MySql. ",
       imgUrl: projImg3
     }
   ];
+
   return (
     <section className="project" id="projects">
       <Container >
@@ -37,13 +42,7 @@ export const Projects = () => {
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
             <h2>Projects</h2>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum,
-              recusandae quos doloribus tenetur quas vero. Nobis ducimus aliquid
-              tempore recusandae doloremque quo soluta numquam cum ullam
-              perspiciatis tenetur repudiandae, temporibus ipsa eveniet error
-              architecto maiores ab. Iste aliquam voluptas nesciunt. Repellat
-              voluptatem quisquam dignissimos assumenda repellendus sed error
-              tempore et?
+              Hey! Here are the few glimpses of project made by me.
             </p>
             <Tab.Container id="projects-tabs" defaultActiveKey="first">
               <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id ="pils-tab">
@@ -72,8 +71,28 @@ export const Projects = () => {
                     </Row>
                 </Tab.Pane>
 
-                <Tab.Pane eventKey="second">Lorem, ipsum.</Tab.Pane>
-                <Tab.Pane eventKey="third">Lorem, ipsum.</Tab.Pane>
+                <Tab.Pane eventKey="second">
+                <Row>
+                        {
+                            projectsJava.map((project, index) => {
+                                return(
+                                    <ProjectCard key={index} {...project}/>
+                                )
+                            })
+                        }
+                    </Row>
+                </Tab.Pane>
+                <Tab.Pane eventKey="third">
+                <Row>
+                        {
+                            projectsSql.map((project, index) => {
+                                return(
+                                    <ProjectCard key={index} {...project}/>
+                                )
+                            })
+                        }
+                    </Row>
+                </Tab.Pane>
 
               </Tab.Content>
             </Tab.Container>
