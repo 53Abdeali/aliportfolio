@@ -2,17 +2,22 @@ import { Row, Col, Container, Tab, Nav } from "react-bootstrap";
 import TrackVisibility from 'react-on-screen';
 import 'react-animations';
 import { ProjectCard } from "./ProjectCard";
-import colorsharp from '../assests/img/color-sharp.jpg'
-import projImg1 from '../assests/img/portfolio.png'
-import projImg2 from '../assests/img/react & spring.png'
-import projImg3 from '../assests/img/Mysql+ml.png'
+import colorsharp from '../assests/img/color-sharp.jpg';
+import projImg1 from '../assests/img/portfolio.png';
+import projImg2 from '../assests/img/react & spring.png';
+import projImg3 from '../assests/img/Mysql+ml.png';
+import projImg4 from '../assests/img/Screenshot 2023-11-28 140906.png';
 
 export const Projects = () => {
   const projects = [
     {
       title: "My Portfolio",
       description: "Design & Developed using React.JS .",
-      imgUrl: projImg1
+      imgUrl: projImg1,
+
+      title: "My Resume",
+      description:"Designed Using basic html, Css and Js",
+      imgUrl: projImg4,
     }
   ];
 
