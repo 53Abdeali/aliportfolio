@@ -78,7 +78,7 @@ export const NavBar = () => {
                 Projects
               </Nav.Link>
               <Nav.Link
-                href="https://drive.google.com/file/d/1N8aND1KyPR3gSWlWBEz2WznSApg-nZiI/view?usp=drive_link"
+                href="https://53abdeali.github.io/MyResume/"
                 className={
                   activeLink === "resume" ? "active:navbar-link" : "navbar-link"
                 }
