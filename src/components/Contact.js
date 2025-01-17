@@ -43,7 +43,7 @@ export const Contact = () => {
       return;
     } else {
       try {
-        await axios.post("http://localhost:8000/api/contact", formDetails);
+        await axios.post("https://aliportfolio.onrender.com/api/contact", formDetails);
         setButtonText("Sending...")
         alert("Message Sent Successfully!");
         setFormDetails({
