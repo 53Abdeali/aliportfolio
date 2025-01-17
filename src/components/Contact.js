@@ -140,7 +140,7 @@ export const Contact = () => {
                           }
                         >{errors.message && <p className="error">{errors.message}</p>}</textarea>
                         <button type="submit">
-                          <span>{buttonText}</span>
+                          <span>Send</span>
                         </button>
                       </Col>
                       {/* {status.message && (
