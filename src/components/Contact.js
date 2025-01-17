@@ -14,7 +14,6 @@ export const Contact = () => {
   };
 
   const [formDetails, setFormDetails] = useState(details);
-  const [buttonText, setButtonText] = useState("Send");
   const [errors, setErrors] = useState({});
 
   const onFormUpdate = (category, value) => {
