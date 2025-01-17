@@ -1,0 +1,5 @@
+com\web\portfolio\contact\Model.class
+com\web\portfolio\contact\Config.class
+com\web\portfolio\contact\PortService.class
+com\web\portfolio\PortfolioApplication.class
+com\web\portfolio\contact\Controller.class
