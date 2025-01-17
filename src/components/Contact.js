@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "react-animations";
 import TrackVisibility from "react-on-screen";
-
+import axios from "axios";
 
 export const Contact = () => {
   const details = {
@@ -14,10 +14,8 @@ export const Contact = () => {
   };
 
   const [formDetails, setFormDetails] = useState(details);
-
   const [buttonText, setButtonText] = useState("Send");
-
-  const [status, setStatus] = useState({});
+  const [errors, setErrors] = useState({});
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -26,28 +24,39 @@ export const Contact = () => {
     });
   };
 
-  const Submit = async (e) => {
+  const validateForm = () => {
+    let tempErrors = {};
+    if (!formDetails.firstName)
+      tempErrors.firstName = "First Name is Required!";
+    if (!formDetails.lastName) tempErrors.lastName = "Last Name is Required!";
+    if (!formDetails.email) tempErrors.email = "Email is Required!";
+    if (!formDetails.phone) tempErrors.phone = "Phone Number is Required!";
+    if (!formDetails.message) tempErrors.message = "Please enter your message!";
+
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "Application/json;charset=utf-8",
-      },
-
-      body: JSON.stringify(formDetails),
-    });
-    setButtonText("Send");
-    let result = await response.json();
-    setFormDetails(details);
-
-    if (result.code === 200) {
-      setStatus({ success: true, message: "Message Sent Successfully" });
+    if (!validateForm()) {
+      return;
     } else {
-      setStatus({
-        success: false,
-        message: "Something went wrong, please try again later",
-      });
+      try {
+        await axios.post("http://localhost:8000/api/contact", formDetails);
+        setButtonText("Sending...")
+        alert("Message Sent Successfully!");
+        setFormDetails({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } catch (err) {
+        console.log("Error sending message!", error);
+        alert("Error sending message");
+      }
     }
   };
 
@@ -77,7 +86,7 @@ export const Contact = () => {
                   }
                 >
                   <h2>Get in Touch</h2>
-                  <form onSubmit={Submit} action="">
+                  <form onSubmit={handleSubmit} action="">
                     <Row>
                       <Col sm={6} className="px-1">
                         <input
@@ -88,6 +97,7 @@ export const Contact = () => {
                             onFormUpdate("firstName", e.target.value)
                           }
                         />
+                        {errors.firstName && <p className="error">{errors.firstName}</p>} 
                       </Col>
                       <Col sm={6} className="px-1">
                         <input
@@ -98,6 +108,7 @@ export const Contact = () => {
                             onFormUpdate("lastName", e.target.value)
                           }
                         />
+                        {errors.lastName && <p className="error">{errors.lastName}</p>}
                       </Col>
                       <Col sm={6} className="px-1">
                         <input
@@ -108,6 +119,7 @@ export const Contact = () => {
                             onFormUpdate("email", e.target.value)
                           }
                         />
+                        {errors.email && <p className="error">{errors.email}</p>}
                       </Col>
                       <Col sm={6} className="px-1">
                         <input
@@ -118,6 +130,7 @@ export const Contact = () => {
                             onFormUpdate("phone", e.target.value)
                           }
                         />
+                        {errors.phone && <p className="error">{errors.phone}</p>}
                       </Col>
                       <Col sm={6} className="px-1">
                         <textarea
@@ -127,12 +140,12 @@ export const Contact = () => {
                           onChange={(e) =>
                             onFormUpdate("message", e.target.value)
                           }
-                        ></textarea>
+                        >{errors.message && <p className="error">{errors.message}</p>}</textarea>
                         <button type="submit">
                           <span>{buttonText}</span>
                         </button>
                       </Col>
-                      {status.message && (
+                      {/* {status.message && (
                         <Col>
                           <p
                             className={
@@ -142,7 +155,7 @@ export const Contact = () => {
                             {status.message}
                           </p>
                         </Col>
-                      )}
+                      )} */}
                     </Row>
                   </form>
                 </div>
