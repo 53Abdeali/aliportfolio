@@ -54,7 +54,7 @@ export const Contact = () => {
           message: "",
         });
       } catch (err) {
-        console.log("Error sending message!", error);
+        console.log("Error sending message!", err);
         alert("Error sending message");
       }
     }
